@@ -11,17 +11,14 @@
 #include <sys/types.h>
 
 /**
- * exit_cmd - command to exit
- * @command: tokenized command
- * @line: input read from stdin
- *
- * Return: none.
+ *handle_signal- it keeps track is interactive mode
+ *@m: the signal number
+ *Return: nothing
  */
-void exit_cmd(char **command, char *line)
+
+void handle_signal(int m)
 {
-free(line);
-free_buffers(command);
-exit(0);
+(void)m;
+write(STDERR_FILENO, "\n", 1);
+write(STDERR_FILENO, "$ ", 2);
 }
-
-
