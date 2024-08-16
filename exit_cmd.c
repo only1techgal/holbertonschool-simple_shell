@@ -1,5 +1,7 @@
 #include "shell.h"
 
+/** */
+
 /**
  * exit_cmd - command to exit
  * @command: tokenized command
@@ -10,7 +12,7 @@
 void exit_cmd(char **command, char *line)
 {
 free(line);
-free_buffers(command);
+free(*command);
 exit(0);
 }
 

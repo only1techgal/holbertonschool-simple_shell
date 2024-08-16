@@ -1,6 +1,24 @@
 #include "shell.h"
 
 /**
+* _strlen - return the length of a string
+* @text: string
+* Return: integer length of text
+ */
+
+int _strlen(char *text)
+{
+int count = 0;
+int i;
+
+for (i = 0; text[i] != '\0'; i++)
+{
+count++;
+}
+return count;
+}
+
+/**
  * append_path - adds path to command
  * @path: path of command
  * @command: user entered command
