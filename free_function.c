@@ -10,20 +10,24 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-/** */
-
 /**
- * exit_cmd - command to exit
- * @command: tokenized command
- * @line: input read from stdin
+ * free_buffer - freesbuffer
+ * @buf: buffer to be freed
  *
- * Return: none.
+ * Return: nothing
  */
-void exit_cmd(char **command, char *line)
+void free_buffers(char **buf)
 {
-free(line);
-free(*command);
-exit(0);
+int i = 0;
+
+if (buf || buf == NULL)
+return;
+while (buf[i])
+{
+free(buf[i]);
+i++
+}
+free(buf);
 }
 
 

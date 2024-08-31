@@ -1,4 +1,32 @@
 #include "shell.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdbool.h>
+#include <sys/wait.h>
+#include <time.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+
+/**
+* _strlen - return the length of a string
+* @text: string
+* Return: integer length of text
+ */
+
+int _strlen(char *text)
+{
+int count = 0;
+int i;
+
+for (i = 0; text[i] != '\0'; i++)
+{
+count++;
+}
+return count;
+}
 
 /**
  * append_path - adds path to command

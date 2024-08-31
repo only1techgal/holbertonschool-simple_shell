@@ -1,0 +1,118 @@
+./" Manpage for simple_shell
+
+.TH simple_shell 1 "August 2024" "1.0" "simple shell manual"
+
+.SH NAME
+simple shell \- This is a minimal Unix shell for executing commands
+
+.SH SYNOPSIS
+.B simple_shell
+[\fI\-h\fR] [\fI\-v\fR] [\fI\-c\fR] [\fI\-x \fR] [fI\-i\fR] [fI\-s\fR]
+
+.SH DESCRIPTION
+.B simple_shell
+is a minimal Unix shell for executing commands
+
+.SH FEATURES
+.B Command Execution\fR
+The shell allows users to execute commands in a Unix environment
+
+.TP
+\fB Input redirection\fR
+The shell supports input redirection, allowing users to take input from a file which is done by using the '<' symbol
+
+.TP
+\fB Output redirection\fR
+The shell supports output redirection,allowing users to redirect the output of commands to a file, which is done by using the '>' symbol
+
+.TP
+\fB Background Execution\fR
+Allows commands to be executed in the background by adding '&' symbol to the command.
+
+.TP
+\fB Build-in commands\fR
+The shell includes several built-in commands that are essential for navigating and managing the shell environment. Key built-in include:
+
+- \fB cd\fR: Changes the current working directory.
+- \fB pwd\fR: Prints the current working directory.
+- \fB ls\fR: Lists the contents of a file.
+- \fB cp\fR: Copies files and directories.
+- \fB mv\fR: Moves or renames files and directories
+- \fB rm\fR: Removes files or directories
+- \fB mkdir\fB: Creates and names directories
+- \fB rmdir\fB: Removes and empty directory
+- \fB touch\fB: Creates new empty files
+- \fB man\fB: Displays the manual page for a specified command or function
+- \fB curl\fR: Transfers data from or to a server using various protocols
+- \fB chmod\fR: Changes files or directory permissions
+- \fB chown\fR: Changes the ownership of a file or directory
+- \fB exit\fR: Exits the shell session.
+- \fB echo\fR: Outputs text or variables to the terminal
+- \fB cat\fR: Concatinates and displays the content of a file
+
+.TP
+\fB Handling signals\fR
+The shell handles signals sent by the terminal or system.
+
+.TP
+\fB Command history\fR
+The shell saves a history of previously executed commands, which can be accesses by using the up and down arrow keys to navigate through commands
+
+.TP
+\fB Auto-completion\fR
+The shell provides auto-completion for commands, files, and directory names.
+
+.SH EXAMPLES
+.B simple_shell
+.PP
+Start the shell interactively:
+.PP
+\fB simple_shell
+.PP
+\fB simple_shell -c "ls -la"\fR
+.PP
+Change directory using the build-in command:
+.PP
+\fBsimple_shell -c cd /path/to/directory && pwd"\fR
+.PP
+Handle signals (e.g., Ctrl+S pause output):
+.PP
+While running a command that generates a lot of poutput, press Ctrl+S to pause the output. Press Ctrl+Q to resume the output
+.PP
+\fBsimple_shell -c "history"\fR
+.PP
+Use auto complition:
+.PP
+Type another command and use Tab to auto-complete.
+
+.SH FILES
+.B /etc/simple_shell.conf
+\- Configuration file for the shell. This file contains settings such as default options, user preferences, and environment variables that customize the behavior of the shell.
+
+.B ~/.simple_shell_history
+\- History file where the shell saves the list of previously executed commands. This allows users to access and reuse commands from past sessions.
+
+.B ~/.simple_shellrc
+\- Initialization script executed when the shell starts. It is used to set up the environment, define user-specific aliases, and configure shell options.
+
+.B /var/log/simple_shell.log
+\- Log file where the shell records system messages and errors. This file is useful for troubleshooting issues and monitoring shell activity.
+
+.B /path/to/AUTHORS
+\- List of contributors to the project. This file contains the names and contact information of individuals who have contributed to the development of the shell.
+
+.B /path/to/README.md
+\- Documentation file providing an overview of the shell, installation instructions, usage examples, and other relevant information. This file helps users understand how to install, configure, and use the shell effectively.
+
+.SH AUTHOR
+Written by Lemohang Lipholo & Keketso Nchai.
+
+.SH BUGS
+Report bugs to <jenn.lipholo@gmail.com> <keketsolehloenya516@gmail.com>.
+
+.SH COPYRIGHT
+.B simple_shell
+\© 2024 Lemohang Lipholo & Keketso Nchai. All rights reserves.
+
+.Sh LICENSE
+This man pagge is licensed under a proprietary license. Redistribution, modification, and use are not permitted without prior written consent from the Authors. For licensing inquiries and permissions, please contact +266 68761648 or +266 63958811
