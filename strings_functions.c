@@ -24,7 +24,7 @@ int i = 0, output;
 while (*(s1 + i) == *(s2 + i) && *(s1 + i) != '\0')
 i++;
 
-output = (*(s1 + i) - *(s2 + i));
+output = (*(s1 + i)-*(s2 + i));
 
 return (output);
 }

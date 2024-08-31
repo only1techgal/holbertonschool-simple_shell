@@ -14,26 +14,26 @@ extern char **environ;
 
 void parse(char command[])
 {
-	char *arguments[11];
-	char *token = strtok(command, " ");
-	int arg_count = 0;
+char *arguments[11];
+char *token = strtok(command, " ");
+int arg_count = 0;
 
 
-	while (token != NULL && arg_count < 10)
-	{
-		arguments[arg_count++] = token;
-		token = strtok(NULL, " ");
-	}
-	if (arg_count > 11)
-	{
-		perror("Error: Too many arguments");
-		return;
-	}
-	arguments[arg_count] = NULL;
-	if (arg_count > 0)
-	{
-		execution(arguments[0], arguments);
-	}
+while (token != NULL && arg_count < 10)
+{
+arguments[arg_count++] = token;
+token = strtok(NULL, " ");
+}
+if (arg_count > 11)
+{
+perror("Error: Too many arguments");
+return;
+}
+arguments[arg_count] = NULL;
+if (arg_count > 0)
+{
+execution(arguments[0], arguments);
+}
 }
 
 /**
@@ -43,13 +43,13 @@ void parse(char command[])
  */
 void print_env(void)
 {
-    char **env = environ;
+char **env = environ;
 
-    while (*env)
-    {
-        printf("%s\n", *env);
-        env++;
-    }
+while (*env)
+{
+printf("%s\n", *env);
+env++;
+}
 }
 
 /**
@@ -62,12 +62,12 @@ void print_env(void)
  */
 int _strcmp(char *s1, char *s2)
 {
-    while (*s1 && *s2 && *s1 == *s2)
-    {
-        s1++;
-        s2++;
-    }
-    return (*s1 - *s2);
+while (*s1 && *s2 && *s1 == *s2)
+{
+s1++;
+s2++;
+}
+return (*s1 - *s2);
 }
 
 /**
@@ -77,39 +77,39 @@ int _strcmp(char *s1, char *s2)
  */
 int main(void)
 {
-      char *input = NULL;
-      size_t len = 0;
-      ssize_t nread;
+char *input = NULL;
+size_t len = 0;
+ssize_t nread;
 
-      while (1)
-      {
-          printf("$ ");
-          nread = getline(&input, &len, stdin);
-          
-          if (nread == -1)
-          {
-              free(input);
-              exit(0);
-          }
+while (1)
+{
+printf("$ ");
+nread = getline(&input, &len, stdin);
 
-          input[strcspn(input, "\n")] = '\0';
+if (nread == -1)
+{
+free(input);
+exit(0);
+}
 
-          if (_strcmp(input, "env") == 0)
-          {
-              print_env();
-          }
-          else if (_strcmp(input, "exit") == 0)
-          {
-              free(input);
-              exit(0);
-          }
-          else 
-          {
-              parse(input);
-          }
+input[strcspn(input, "\n")] = '\0';
 
-          free(input);
-          input = NULL;
-      }
-      return (0);
+if (_strcmp(input, "env") == 0)
+{
+print_env();
+}
+else if (_strcmp(input, "exit") == 0)
+{
+free(input);
+exit(0);
+}
+else
+{
+parse(input);
+}
+
+free(input);
+input = NULL;
+}
+return (0);
 }

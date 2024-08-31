@@ -25,7 +25,7 @@ for (i = 0; text[i] != '\0'; i++)
 {
 count++;
 }
-return count;
+return (count);
 }
 
 /**
@@ -63,9 +63,9 @@ i++;
 }
 while (command[j])
 {
-buf[i +j] = command[j];
+buf[i + j] = command[j];
 j++;
 }
-buf[i +j] = '\0';
+buf[i + j] = '\0';
 return (buf);
 }

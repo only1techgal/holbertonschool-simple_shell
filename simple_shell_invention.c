@@ -15,29 +15,29 @@
  */
 void execution(char *cp, char **cmd)
 {
-    pid_t pid;
-    int status;
+pid_t pid;
+int status;
 
-    pid = fork();
+pid = fork();
 
-    if (pid == -1)
-    {
-        perror("Error: fork failed");
-        exit(EXIT_FAILURE);
-    }
-    else if (pid == 0)
-    {
-        if (execvp(cp, cmd) == -1)
-        {
-            perror("Error: exec failed");
+if (pid == -1)
+{
+perror("Error: fork failed");
+exit(EXIT_FAILURE);
+}
+else if (pid == 0)
+{
+if (execvp(cp, cmd) == -1)
+{
+perror("Error: exec failed");
 
-            exit(EXIT_FAILURE);
-        }
-    }
-    else
-    {
-        do {
-            waitpid(pid, &status, WUNTRACED);
-        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
-    }
+exit(EXIT_FAILURE);
+}
+}
+else
+{
+do {
+waitpid(pid, &status, WUNTRACED);
+} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+}
 }
