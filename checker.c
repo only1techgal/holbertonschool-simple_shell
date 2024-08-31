@@ -17,7 +17,7 @@
  *
  * Return: 1 if cmd executed, 0 if is not executed
  */
- int checker(char **cmd, char *buf)
+int checker(char **cmd, char *buf)
 {
 if (handle_builtin(cmd, buf))
 return (1);
